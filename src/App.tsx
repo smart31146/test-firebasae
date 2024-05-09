@@ -21,6 +21,8 @@ function App() {
       message,
       read: false
     });
+    const querySnapshot = await getDocs(collection(db, "notifications"));
+    setNotifications(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
   };
 
   const markAsRead = async (id: string) => {
@@ -28,6 +30,8 @@ function App() {
     await updateDoc(notificationDoc, {
       read: true
     });
+    const querySnapshot = await getDocs(collection(db, "notifications"));
+    setNotifications(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
   };
 
   return (
