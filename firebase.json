@@ -1,0 +1,81 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ],
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "emulators": {
+    "auth": {
+        "host": "localhost",
+      "port": 9098
+    },
+    "functions": {
+        "host": "localhost",
+      "port": 5002
+    },
+    "firestore": {
+        "host": "localhost",
+      "port": 8080
+    },
+    "pubsub": {
+        "host": "localhost",
+      "port": 8086
+    },
+    "storage": {
+        "host": "localhost",
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true,
+    "database": {
+        "host": "localhost",
+      "port": 9000
+    },
+    "hosting": {
+        "host": "localhost",
+      "port": 5000
+    }
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
+  },
+  "extensions": {}
+}

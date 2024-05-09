@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "ivan-test-project-808be",
+    "staging": "ivan-test-project-808be"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
